@@ -1,0 +1,49 @@
+body {
+  font-family: sans-serif;
+}
+
+html {
+  margin: 0;
+}
+
+.app-header {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-logout {
+  background-color: transparent !important;
+  border: none!important;
+  color: #50005a;
+}
+
+.success-message {
+  color: rgb(48, 48, 48);
+  font: inherit;
+  font-size: small;
+  border: 1px solid #60ce42;
+  padding: 0.5rem;
+  background-color: #77d186;
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: white;
+  font: inherit;
+  font-size: small;
+  border: 1px solid #ce4242;
+  padding: 0.5rem;
+  background-color: #d35c5c;
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+}

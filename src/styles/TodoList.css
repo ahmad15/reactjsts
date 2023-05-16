@@ -1,0 +1,49 @@
+.content-list {
+  max-width: 40rem;
+  width: 95%;
+  margin: 2rem auto;
+}
+
+.sort {
+  direction: rtl;
+}
+
+.sort button {
+  font-size: x-small;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 1rem 0;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.done {
+  background: #835789;
+  color: white;
+}
+
+.content h4 {
+  margin-top: 0;
+}
+
+.content span {
+  font-size: small;
+}
+
+.button-action {
+  display: grid;
+}
+
+.button-action button {
+  font-size: x-small;
+}
