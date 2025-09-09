@@ -1,7 +1,25 @@
 .content-list {
-  max-width: 40rem;
+  max-width: 50.5rem;
   width: 95%;
   margin: 2rem auto;
+}
+
+.content-list .content {
+  width: 78%;
+  margin-left: 1rem;
+}
+
+.todo-snapshot {
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.todo-snapshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .sort {
@@ -12,6 +30,17 @@
   font-size: x-small;
 }
 
+.sort .button-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.sort .button-group .active {
+  color: white;
+  background: #59437d;
+  border-color: #4b386a;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -20,16 +49,55 @@ ul {
 li {
   margin: 1rem 0;
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 6px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  border: 1px solid #226462;
+  border-radius: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 }
 
 li.done {
-  background: #835789;
-  color: white;
+  background: #d3eee9;
+  color: #3c3a3a;
+}
+
+li.in-progress {
+  background: #e2f29f;
+  color: #3c3a3a;
+}
+
+li.on-hold {
+  background: #abb89c;
+  color: #3c3a3a;
+}
+
+li.no-data {
+  border-color: #8f8f8f;
+  justify-content: center;
+  color: #8f8f8f;
+  font-weight: bold;
+}
+
+.menu-action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 2rem;
+  height: 8rem;
+  flex-direction: column;
+}
+
+.menu-action .button-icon {
+  background: transparent;
+  border-color: transparent;
+  color: #3c3a3a;
+  padding: .2rem .5rem;
+  border-radius: .2rem;
+}
+
+.menu-action .button-icon:hover {
+  background-color: #cecece;
 }
 
 .content h4 {
@@ -42,8 +110,23 @@ li.done {
 
 .button-action {
   display: grid;
+  border: 1px solid #1c5553;
 }
 
-.button-action button {
+.button-action button, select {
   font-size: x-small;
+  background: #ffffff;
+  color: #3c3a3a;
+  border: none;
+  min-width: 7rem;
+}
+
+.button-action button:hover, select:hover {
+  background: #1c5553;
+  color: white;
+}
+
+.button-action select {
+  text-align: center;
+  padding: 0.4rem;
 }

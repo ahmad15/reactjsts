@@ -7,6 +7,11 @@ interface Detail {
   id: string;
   email: string;
   name: string;
+  oldPassword?: string;
+  password?: string;
+  RetypePassword?: string;
+  created?: Date;
+  updated?: Date;
 }
 
 interface AuthResponse {

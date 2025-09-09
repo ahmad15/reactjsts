@@ -31,48 +31,50 @@ function Login(props: LoginProps) {
 
     setErrMessage('');
     setIsLoading(true);
+
     UserApi.auth(input)
       .then(response => {
         if(response.status === CONST.RESPONSE.SUCCESS) {
           props.setToken(response.data);
           navigate("/");
         }
+
         setIsLoading(false);
       })
       .catch(ex => {
         const error =
-            ex.code === "ECONNABORTED"
-            ? "A timeout has occurred"
-            : ex.response.status === 401
-              ? "Email or Password is not valid"
-              : "An unexpected error has occurred";
+          ex.code === "ECONNABORTED"
+          ? "A timeout has occurred"
+          : ex.response.status === 401
+            ? ex.response.data.message || "Unauthorized access"
+            : "Unauthorized access";
 
-          setErrMessage(error);
-          setIsLoading(false);
-          console.log('Error: ' + error);
+        setErrMessage(error);
+        setIsLoading(false);
+        console.log('Error: ' + error);
       });
   }
 
   return (
-    <div>
+    <section>
       <form onSubmit={onLoginHandler}>
         <div className="form-control">
-          <label htmlFor="new-todo">Login</label>
+          <h2>Login</h2>
         </div>
         <div className="form-control">
           <label className="field-label" htmlFor="email">Email</label>
-          <input type="text" required={true} id="email" ref={emailInputRef} />
+          <input type="text" name="email" required={true} id="email" autoComplete="on" ref={emailInputRef} />
         </div>
         <div className="form-control">
           <label className="field-label" htmlFor="password">Password</label>
-          <input type="password" required={true} id="password" ref={passInputRef} />
+          <input type="password" name="password" required={true} id="password" ref={passInputRef} />
         </div>
         { isLoading ? <LoadingSpinner /> : <button type="submit">Log In</button> }
       </form>
       { !isEmpty(errMessage) ? <div className="error-message">
         {errMessage}
       </div> : null }
-    </div>
+    </section>
   );
 }
 

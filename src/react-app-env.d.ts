@@ -5,5 +5,6 @@ declare namespace NodeJS {
     PUBLIC_URL: string
     REACT_APP_API_URI: string
     REACT_APP_API_TIMEOUT: number
+    JWT_SECRET: string
   }
 }

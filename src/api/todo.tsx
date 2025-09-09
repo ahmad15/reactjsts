@@ -1,20 +1,11 @@
-import axios from 'axios';
-
 import Todo from "../models/todo.model";
+import request from './request';
 
-const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_URI,
-  headers: {
-      'content-type':'application/json'
-  },
-  withCredentials: true,
-  timeout: process.env.REACT_APP_API_TIMEOUT
-});
+import CONST from '../constants';
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const TodoApi = {
   getData: (token: string, query: string | null) =>
-    instance<Todo["detail"][]>({
+    request<Todo["detail"][]>({
       headers: {
         'Authorization': `Bearer ${token}`
       },
@@ -22,42 +13,56 @@ export default {
       url: `/todos?${query}`
     }),
   getDetailData: (token: string, id: string) =>
-    instance<Todo>({
+    request<Todo>({
       headers: {
         'Authorization': `Bearer ${token}`
       },
       method:'GET',
-      url:`/todos${id}`
+      url:`/todo/${id}`
     }),
-  postData: (token: string, todo: Todo["create"]) =>
-    instance({
+  postData: (token: string, todo: Todo["create"]) => {
+    const formData = new FormData();
+    formData.append('title', todo.title);
+    formData.append('description', todo.description);
+    formData.append('deadline', todo.deadline.toISOString());
+    formData.append('status', CONST.STATUS.TODO);
+
+    if (todo.snapshot) {
+      formData.append('file', todo.snapshot);
+    }
+
+    return request({
       headers: {
+        'content-type': 'multipart/form-data',
         'Authorization': `Bearer ${token}`
       },
       method: 'POST',
       url:'/todo',
-      data: {
-        title: todo.title,
-        description: todo.description,
-        deadline: todo.deadline
-      }
-  }),
-  patchData: (token: string, todo: Todo["detail"]) =>
-    instance({
+      data: formData
+  })},
+  patchData: (token: string, todo: Todo["update"]) => {
+    const formData = new FormData();
+    formData.append('title', todo.title);
+    formData.append('description', todo.description);
+    formData.append('deadline', new Date(todo.deadline).toISOString());
+    formData.append('done', todo.done.toString());
+    formData.append('status', todo.status);
+
+    if (todo.snapshot) {
+      formData.append('file', todo.snapshot);
+    }
+
+    return request({
       headers: {
+        'content-type': 'multipart/form-data',
         'Authorization': `Bearer ${token}`
       },
       method: 'PATCH',
       url:`/todo/${todo.id}`,
-      data: {
-        title: todo.title,
-        description: todo.description,
-        deadline: todo.deadline,
-        done: todo.done
-      }
-  }),
+      data: formData
+  })},
   deleteData: (token: string, id: string) =>
-    instance({
+    request({
       headers: {
         'Authorization': `Bearer ${token}`
       },
@@ -65,3 +70,5 @@ export default {
       url:`/todo/${id}`
     }),
 };
+
+export default TodoApi;

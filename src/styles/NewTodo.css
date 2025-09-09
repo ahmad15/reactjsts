@@ -1,6 +1,6 @@
 form {
-  width: 90%;
-  max-width: 40rem;
+  width: 95%;
+  max-width: 50rem;
   margin: 2rem auto;
 }
 
@@ -8,7 +8,23 @@ form {
   margin-bottom: 1rem;
 }
 
-label, input {
+.form-button {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.form-button button {
+  margin-right: 0.5rem;
+}
+
+.form-control select {
+  font-size: small;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+label, input, textarea {
   display: block;
   width: 100%;
 }
@@ -21,23 +37,28 @@ label {
   font-weight: bold;
 }
 
-input {
+input, textarea, select {
   font: inherit;
   border: 1px solid #ccc;
   padding: 0.25rem;
 }
 
-input:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #50005a;
+  border-color: #684d94;
 }
 
 button {
-  background: #50005a;
-  border: 1px solid #50005a;
+  background: #684d94;
+  border: 1px solid #59437d;
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
+}
+
+button .icon {
+  margin-right: 0.2rem;
+  margin-bottom: -0.24rem;
 }
 
 button:focus {
@@ -46,6 +67,24 @@ button:focus {
 
 button:hover,
 button:active {
-  background: #6a0a77;
-  border-color: #6a0a77;
+  background: #59437d;
+  border-color: #59437d;
+}
+
+.file-details {
+  font-size: smaller;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.file-details ul {
+  list-style: disc;
+  margin: 0.25rem 0;
+}
+
+.file-details ul> li {
+  padding: 0.05rem 0 !important;
+  box-shadow: none;
+  margin: 0 !important;
+  border: none;
 }

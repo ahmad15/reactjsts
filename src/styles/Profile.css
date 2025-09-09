@@ -1,0 +1,10 @@
+.change-password {
+  border-top: solid 1px #b2b2b2;
+  padding-top: 1rem;
+  margin-top: .5rem;
+}
+
+.update-title {
+  font-weight: bold;
+  margin-top: 1.5rem;
+}

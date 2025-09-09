@@ -9,7 +9,16 @@ const RESPONSE = {
   INTERNAL_SERVER_ERROR: 500
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
-  RESPONSE
+const STATUS = {
+  TODO: 'todo',
+  IN_PROGRESS: 'in_progress',
+  ON_HOLD: 'on_hold',
+  DONE: 'done',
 };
+
+const CONST = {
+  RESPONSE,
+  STATUS
+};
+
+export default CONST;

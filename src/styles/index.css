@@ -7,43 +7,92 @@ html {
 }
 
 .app-header {
-  width: 90%;
-  max-width: 40rem;
+  width: 95%;
+  max-width: 50rem;
   margin: 2rem auto;
   display: flex;
   justify-content: space-between;
+}
+
+.icon-header {
+  cursor: pointer;
+  color: #684d94;
+}
+
+.app-credential {
+  font-size: small;
+  align-content: center;
+}
+
+.app-credential .button-icon {
+  background-color: transparent !important;
+  border: none!important;
+  color: #684d94;
+  padding: 0;
+}
+
+.app-credential .button-action {
+  margin-top: .5rem;
+  position: absolute;
+}
+
+.app-credential .button-item {
+  padding: .5rem 0 .8rem .8rem;
+  text-align: start;
+}
+
+.app-credential .button-action button:hover {
+  background: #684d94 !important;
+  color: white;
+}
+
+.app-credential .icon {
+  margin-right: 0.12rem;
+  margin-bottom: -0.28rem;
+}
+
+.app-credential button:hover {
+  color: #59437d;
+}
+
+.app-credential-name {
+  margin-right: 5px;
 }
 
 .btn-logout {
   background-color: transparent !important;
   border: none!important;
-  color: #50005a;
+  color: #684d94;
+  padding: 0;
+  margin-left: 8px;
 }
 
 .success-message {
-  color: rgb(48, 48, 48);
+  color: rgb(252, 252, 252);
   font: inherit;
   font-size: small;
-  border: 1px solid #60ce42;
+  border: 1px solid #67893f;
   padding: 0.5rem;
-  background-color: #77d186;
-  width: 90%;
-  max-width: 40rem;
+  background-color: #8dba23;
+  width: 95%;
+  max-width: 49.5rem;
   margin: 2rem auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .error-message {
   color: white;
   font: inherit;
   font-size: small;
-  border: 1px solid #ce4242;
+  border: 1px solid #b03b3b;
   padding: 0.5rem;
-  background-color: #d35c5c;
-  width: 90%;
-  max-width: 40rem;
+  background-color: #d03672;
+  width: 95%;
+  max-width: 49.5rem;
   margin: 2rem auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
